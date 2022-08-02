@@ -18,15 +18,11 @@ resource "aws_cloudfront_distribution" "this" {
     viewer_protocol_policy = "redirect-to-https"
     min_ttl                = 0
     compress               = true
-    allowed_methods        = ["HEAD", "GET", "OPTIONS"]
-    cached_methods         = ["HEAD", "GET"]
+    allowed_methods        = var.default_cache_allowed_methods
+    cached_methods         = var.default_cache_cached_methods
     forwarded_values {
       query_string = true
-      headers = [
-        "Access-Controll-Allow-Origin",
-        "Access-Controll-Request-Headers",
-        "Origin",
-      ]
+      headers      = var.default_cache_headers
 
       cookies {
         forward = "none"
@@ -54,17 +50,13 @@ resource "aws_cloudfront_distribution" "this" {
     iterator = order
     content {
       path_pattern     = order.value["path_pattern"]
-      allowed_methods  = ["GET", "HEAD", "OPTIONS"]
-      cached_methods   = ["GET", "HEAD"]
+      allowed_methods  = var.ordered_cache_allowed_methods
+      cached_methods   = var.ordered_cache_cached_methods
       target_origin_id = order.value["origin_id"]
 
       forwarded_values {
         query_string = true
-        headers = [
-          "Access-Controll-Allow-Origin",
-          "Access-Controll-Request-Headers",
-          "Origin",
-        ]
+        headers      = var.ordered_cache_headers
 
         cookies {
           forward = "none"
