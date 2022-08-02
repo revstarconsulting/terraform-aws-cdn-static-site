@@ -54,6 +54,7 @@ No modules.
 |------|-------------|
 | <a name="output_cloudfront_distribution_id"></a> [cloudfront\_distribution\_id](#output\_cloudfront\_distribution\_id) | CloudFront Distribution ID |
 | <a name="output_cloudfront_domain_name"></a> [cloudfront\_domain\_name](#output\_cloudfront\_domain\_name) | The domain name corresponding to the distribution. |
+| <a name="output_origin_access_identities"></a> [origin\_access\_identities](#output\_origin\_access\_identities) | n/a |
 | <a name="output_s3_bucket_regional_domain_name"></a> [s3\_bucket\_regional\_domain\_name](#output\_s3\_bucket\_regional\_domain\_name) | n/a |
 | <a name="output_static_site_s3_bucket_name"></a> [static\_site\_s3\_bucket\_name](#output\_static\_site\_s3\_bucket\_name) | The name of the bucket. |
 | <a name="output_zone_id"></a> [zone\_id](#output\_zone\_id) | zone id for route53 alias record |
