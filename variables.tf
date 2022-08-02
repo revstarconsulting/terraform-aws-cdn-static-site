@@ -54,6 +54,50 @@ variable "origin_access_identities" {
   default     = {}
 }
 
+
+variable "default_cache_allowed_methods" {
+  description = "List of allowed methods for default cache"
+  type        = list(string)
+  default     = ["HEAD", "GET", "OPTIONS"]
+}
+
+variable "default_cache_cached_methods" {
+  description = "List of cached methods for default cache"
+  type        = list(string)
+  default     = ["HEAD", "GET"]
+}
+
+variable "default_cache_headers" {
+  description = "List of allowed headers for default cache"
+  type        = list(string)
+  default = [
+    "Access-Controll-Allow-Origin",
+    "Access-Controll-Request-Headers",
+    "Origin",
+  ]
+}
+
+variable "ordered_cache_headers" {
+  description = "List of allowed headers for ordered cache"
+  type        = list(string)
+  default = [
+    "Access-Controll-Allow-Origin",
+    "Access-Controll-Request-Headers",
+    "Origin",
+  ]
+}
+variable "ordered_cache_allowed_methods" {
+  description = "List of allowed methods for ordered cache"
+  type        = list(string)
+  default     = ["GET", "HEAD", "OPTIONS"]
+}
+
+variable "ordered_cache_cached_methods" {
+  description = "List of cached methods for ordered cache"
+  type        = list(string)
+  default     = ["GET", "HEAD"]
+}
+
 locals {
   common_tags = {
     environment = var.environment
