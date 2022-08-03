@@ -23,5 +23,6 @@ output "s3_bucket_regional_domain_name" {
 }
 
 output "s3_canonical_user_ids" {
-  value = aws_cloudfront_origin_access_identity.this.*.s3_canonical_user_id
+  value = aws_cloudfront_origin_access_identity.this
 }
+
