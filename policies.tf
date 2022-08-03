@@ -8,8 +8,8 @@ data "aws_iam_policy_document" "static_site_bucket_policy" {
     resources = ["arn:aws:s3:::${each.value}/*"]
 
     principals {
-      type        = "CanonicalUser"
-      identifiers = [aws_cloudfront_origin_access_identity.this[each.key].s3_canonical_user_id]
+      type        = "AWS"
+      identifiers = ["arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${aws_cloudfront_origin_access_identity.this[each.key].id}"]
     }
   }
 }
