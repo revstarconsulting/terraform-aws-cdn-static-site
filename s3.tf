@@ -64,11 +64,11 @@ resource "aws_s3_bucket_policy" "static_site_bucket_policy" {
   depends_on = [
     aws_s3_bucket_public_access_block.s3_bucket_acl
   ]
-  lifecycle {
-    ignore_changes = [
-      policy
-    ]
-  }
+  # lifecycle {
+  #   ignore_changes = [
+  #     policy
+  #   ]
+  # }
 }
 
 
